@@ -5,7 +5,7 @@ const entriesDiv = document.getElementById('entries');
 const clearBtn = document.getElementById('clear-all');
 
 function calculateCalories(p, c, f) {
-  return Math.round(p * 4 + c * 4 + f * 9);
+  return Math.round((p * 4) + (c * 4) + (f * 9));
 }
 
 function renderEntries() {
@@ -23,19 +23,19 @@ function renderEntries() {
     div.innerHTML = `
       <div>
         <strong>${entry.name}</strong><br>
-        P:${entry.protein}g | C:${entry.carbs}g | F:${entry.fat}g
+        Protein: ${entry.protein}g | Carbs: ${entry.carbs}g | Fat: ${entry.fat}g
       </div>
       <div style="text-align:right">
         ${cal} cal<br>
-        <button onclick="deleteEntry(${index})" style="background:none;color:#ff4500;border:none;cursor:pointer;">Remove</button>
+        <button onclick="deleteEntry(${index})" style="background:none; border:none; color:#ff4500; cursor:pointer;">Remove</button>
       </div>
     `;
     entriesDiv.appendChild(div);
   });
 
-  document.getElementById('total-protein').textContent = totalP;
-  document.getElementById('total-carbs').textContent = totalC;
-  document.getElementById('total-fat').textContent = totalF;
+  document.getElementById('total-protein').textContent = totalP.toFixed(1);
+  document.getElementById('total-carbs').textContent = totalC.toFixed(1);
+  document.getElementById('total-fat').textContent = totalF.toFixed(1);
   document.getElementById('total-calories').textContent = Math.round(totalP*4 + totalC*4 + totalF*9);
 }
 
@@ -61,7 +61,7 @@ window.deleteEntry = function(index) {
 };
 
 clearBtn.addEventListener('click', () => {
-  if (confirm('Clear all data?')) {
+  if (confirm('Clear all entries?')) {
     entries = [];
     localStorage.removeItem('macroEntries');
     renderEntries();
