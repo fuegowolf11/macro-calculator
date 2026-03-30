@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Macro Calculator | Fuegowolf Fit</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🥗 Macro Calculator</h1>
+      <p>Track your daily nutrition • Powered by Fuegowolf Fit</p>
+    </header>
+
+    <form id="macro-form">
+      <input type="text" id="food-name" placeholder="Food name (e.g. Chicken Breast)" required>
+      <div class="inputs">
+        <input type="number" id="protein" placeholder="Protein (g)" min="0">
+        <input type="number" id="carbs" placeholder="Carbs (g)" min="0">
+        <input type="number" id="fat" placeholder="Fat (g)" min="0">
+      </div>
+      <button type="submit">Add Food</button>
+    </form>
+
+    <div id="totals">
+      <h2>Daily Totals</h2>
+      <p>Protein: <span id="total-protein">0</span>g</p>
+      <p>Carbs: <span id="total-carbs">0</span>g</p>
+      <p>Fat: <span id="total-fat">0</span>g</p>
+      <p>Calories: <span id="total-calories">0</span></p>
+    </div>
+
+    <div id="entries"></div>
+
+    <button id="clear-all">Clear All Data</button>
+  </div>
+
+  <footer>
+    <p>Built with freeCodeCamp JavaScript • Fuegowolf Fit Portfolio</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
